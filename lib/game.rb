@@ -71,6 +71,6 @@ class Game
   
   def turn
     puts "Choose a space."
-    input = gets.chomp
+    input = gets.strip
   end
 end
