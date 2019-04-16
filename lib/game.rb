@@ -70,7 +70,25 @@ class Game
   end
   
   def turn
-    puts "Choose a space."
-    input = gets.strip
+    board.display
+    move = current_player.move(board)
+    until board.valid_move?(move)
+      puts "Invalid move. Please try again."
+      move = current_player.move(board)
+    end
+    board.update(move, current_player)
+  end
+  
+  def play
+    until over?
+      turn
+    end
+    if won?
+      board.display
+      puts "Congratulations #{winner}!"
+    else
+      board.display
+      puts "Cat's Game!"
+    end
   end
 end
