@@ -13,9 +13,9 @@ elsif opponent == "2"
   order = gets.strip
   if order == "1"
     puts "Spaces are numbered 1-9, with 1 at the top left."
-    Game.new(nil, player_2=Players::Computer.new("O"), nil).play
+    Game.new(Players::Human.new("X"), Players::Computer.new("O"), Board.new).play
   elsif order == "2"
     puts "Spaces are numbered 1-9, with 1 at the top left."
-    Game.new(player_1=Players::Computer.new("X"), nil, nil).play
+    Game.new(Players::Computer.new("X"), Players::Human.new("O"), Board.new).play
   end
 end
